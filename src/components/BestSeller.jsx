@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+// eslint-disable no-unused-vars */
 import 'react'
 import { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'

@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+// eslint-disable react-hooks/exhaustive-deps
 import  'react'
 import { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
