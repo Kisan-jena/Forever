@@ -23,3 +23,12 @@ a.active hr{
         color: azure;
     }
  } 
+
+.navbar {
+    height: 70px; /* Adjust as needed */
+}
+
+body {
+    overflow-y: scroll;
+}
+
