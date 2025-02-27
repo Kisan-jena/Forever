@@ -42,9 +42,10 @@
 //^ Efficient or less code to do above same logic
 
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { assets } from '../assets/assets';
 import { Link,NavLink } from 'react-router-dom';
+import { ShopContext } from '../context/ShopContext';
 
 const navLinks = [
   { name: "HOME", path: "/" },
@@ -56,6 +57,7 @@ const navLinks = [
 const Navbar = () => {
 
   const [visible,setVisble]=useState(false)
+  const {showSearch,setShowSearch}=useContext(ShopContext)
 
   return (
     <div className='flex items-center justify-between py-5 font-medium'>
@@ -79,7 +81,7 @@ const Navbar = () => {
 
       {/* Icons & Sidebar Menu */}
       <div className='flex item-center gap-6 ' >
-        <img src={assets.search_icon} className='w-5 cursor-pointer'  alt="" />
+        <img onClick={()=>setShowSearch(value=>!value)} src={assets.search_icon} className='w-5 cursor-pointer'  alt="" />
 
         <div className='group relative' >
           <img className='w-5 cursor-pointer' src={assets.profile_icon} alt="" />
