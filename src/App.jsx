@@ -1,4 +1,4 @@
-import { BrowserRouter , Routes, Route } from 'react-router-dom'; // ✅ Fix import
+import { Routes, Route } from 'react-router-dom'; // ✅ Fix import
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Cart from "./pages/Cart";

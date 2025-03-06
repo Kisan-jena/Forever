@@ -16,6 +16,23 @@ a.active hr{
     font-weight: 400;
     font-style: normal;
   }
+
+
+  
+/* Add scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
   
  @media (max-width:640px){
     a.active{
