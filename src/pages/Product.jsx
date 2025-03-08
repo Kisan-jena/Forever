@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
 import 'react'
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -15,7 +13,7 @@ import { toast } from 'react-toastify'
 
 const Product = () => {
   const { productId } = useParams()
-  const { products, currency ,addToCart,cartItems} = useContext(ShopContext)
+  const { products, currency ,addToCart} = useContext(ShopContext)
   const [productData, setProductData] = useState(null)
   const [image, setImage] = useState('')
   const [size, setSize] = useState('')
