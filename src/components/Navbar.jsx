@@ -55,7 +55,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch } = useContext(ShopContext);
+  const { setShowSearch,getCartCount } = useContext(ShopContext);
 
   return (
     <div className='flex items-center justify-between py-5 px-4 sm:px-8 font-medium bg-white'>
@@ -91,7 +91,7 @@ const Navbar = () => {
         {/* Cart */}
         <Link to='/cart' className='relative'>
           <img src={assets.cart_icon} className='w-5' alt='Cart' />
-          <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center bg-black text-white rounded-full text-xs'>2</p>
+          <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center bg-black text-white rounded-full text-xs'>{getCartCount()}</p>
         </Link>
 
         {/* Mobile Menu Icon */}

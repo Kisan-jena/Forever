@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import 'react'
 import { useContext, useEffect, useState } from 'react'
@@ -9,14 +10,23 @@ import RelatedProduct from '../components/RelatedProduct'
 import { MdVerified } from "react-icons/md"; // Verified/Original Product Icon
 import { FaTruck } from "react-icons/fa"; // Truck for Cash on Delivery
 import { MdCached } from "react-icons/md"; // Exchange Policy Icon
+import { toast } from 'react-toastify'
 
 
 const Product = () => {
   const { productId } = useParams()
-  const { products, currency } = useContext(ShopContext)
+  const { products, currency ,addToCart,cartItems} = useContext(ShopContext)
   const [productData, setProductData] = useState(null)
   const [image, setImage] = useState('')
   const [size, setSize] = useState('')
+
+  const handleAddToCart = () => {
+    if (!size) {
+      toast.error("Please select a size before adding to cart!");
+      return;
+    }
+    addToCart(productData._id, size);
+  };
 
   useEffect(() => {
     const fetchProductData = () => {
@@ -68,21 +78,19 @@ const Product = () => {
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
+          {/* Size Diplay div */}
           <div className='flex flex-col gap-4 my-8'>
             <p>Select Size</p>
             <div className='flex gap-2'>
               {productData.sizes.map((item, index) => (
-                <button 
-                  onClick={() => setSize(item)} 
-                  className={`border p-2 px-4 bg-gray-100 ${item === size ? 'border-orange-500' : ''}`} 
-                  key={index}
-                >
+                <button onClick={() => setSize(item)} className={`border p-2 px-4 bg-gray-100 ${item === size ? 'border-orange-500' : ''}`}key={index}>
                   {item}
                 </button>
               ))}
             </div>
           </div>
-          <button className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+          {/* Add to cart button */}
+          <button onClick={handleAddToCart} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
           <hr className='mt-8 sm:w-4/5' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
               <p><MdVerified className="inline-block text-gray-500 text-lg mr-2" /> 100% Original product</p>
